@@ -30,8 +30,8 @@ public class PropertyController {
     }
 
     @PostMapping
-    public PropertyService saveProperty(@RequestBody Property property){
-        return (PropertyService) propertyService.saveProperty(property);
+    public Property saveProperty(@RequestBody Property property){
+        return propertyService.saveProperty(property);
     }
 
     @PutMapping("/{id}")
