@@ -2,6 +2,7 @@ package com.gillies.findmynexthome.model;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -14,6 +15,8 @@ public class Property {
     private int id;
     @Column(name = "address")
     private String address;
+    @Column(name = "town")
+    private String town;
     @Column(name = "property")
     private String property;
     @Column(name = "bedrooms")
@@ -31,9 +34,10 @@ public class Property {
     @Column(name = "imageUrls")
     private List<String> imageUrls;
 
-    public Property(int id, String address, String property, int bedrooms, int bathrooms, String description, double price, String date, String type, List<String> imageUrls) {
+    public Property(int id, String address, String town, String property, int bedrooms, int bathrooms, String description, double price, String date, String type, List<String> imageUrls) {
         this.id = id;
         this.address = address;
+        this.town = town;
         this.property = property;
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
@@ -61,6 +65,14 @@ public class Property {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
     }
 
     public String getProperty() {
