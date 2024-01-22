@@ -14,8 +14,8 @@ public class Property {
     private int id;
     @Column(name = "address")
     private String address;
-    @Column(name = "type")
-    private String type;
+    @Column(name = "property")
+    private String property;
     @Column(name = "bedrooms")
     private int bedrooms;
     @Column(name = "bathrooms")
@@ -24,17 +24,23 @@ public class Property {
     private String description;
     @Column(name = "price")
     private double price;
+    @Column(name = "date")
+    private String date;
+    @Column(name = "type")
+    private String type;
     @Column(name = "imageUrls")
     private List<String> imageUrls;
 
-    public Property(int id, String address, String type, int bedrooms, int bathrooms, String description, double price, List<String> imageUrls) {
+    public Property(int id, String address, String property, int bedrooms, int bathrooms, String description, double price, String date, String type, List<String> imageUrls) {
         this.id = id;
         this.address = address;
-        this.type = type;
+        this.type = property;
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
         this.description = description;
         this.price = price;
+        this.date = date;
+        this.type = type;
         this.imageUrls = imageUrls;
     }
 
@@ -55,6 +61,14 @@ public class Property {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getProperty() {
+        return property;
+    }
+
+    public void setProperty(String property) {
+        this.property = property;
     }
 
     public String getType() {
@@ -104,4 +118,13 @@ public class Property {
     public void setImageUrls(List<String> imageUrls) {
         this.imageUrls = imageUrls;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }
+
