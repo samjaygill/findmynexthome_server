@@ -34,7 +34,7 @@ public class Property {
     public Property(int id, String address, String property, int bedrooms, int bathrooms, String description, double price, String date, String type, List<String> imageUrls) {
         this.id = id;
         this.address = address;
-        this.type = property;
+        this.property = property;
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
         this.description = description;
@@ -71,14 +71,6 @@ public class Property {
         this.property = property;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public int getBedrooms() {
         return bedrooms;
     }
@@ -111,20 +103,28 @@ public class Property {
         this.price = price;
     }
 
-    public List<String> getImageUrls() {
-        return imageUrls;
-    }
-
-    public void setImageUrls(List<String> imageUrls) {
-        this.imageUrls = imageUrls;
-    }
-
     public String getDate() {
         return date;
     }
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public List<String> getImageUrls() {
+        return imageUrls;
+    }
+
+    public void setImageUrls(List<String> imageUrls) {
+        this.imageUrls = imageUrls;
     }
 }
 

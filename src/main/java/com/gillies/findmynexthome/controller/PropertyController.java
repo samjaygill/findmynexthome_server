@@ -39,11 +39,13 @@ public class PropertyController {
         Property existingProperty = propertyService.findById(id).get();
 
         existingProperty.setAddress(updatedProperty.getAddress());
-        existingProperty.setType(updatedProperty.getType());
+        existingProperty.setProperty(updatedProperty.getProperty());
         existingProperty.setBedrooms(updatedProperty.getBedrooms());
         existingProperty.setBathrooms(updatedProperty.getBathrooms());
         existingProperty.setDescription(updatedProperty.getDescription());
         existingProperty.setPrice(updatedProperty.getPrice());
+        existingProperty.setDate(updatedProperty.getDate());
+        existingProperty.setType(updatedProperty.getType());
         existingProperty.setImageUrls(updatedProperty.getImageUrls());
         
         propertyService.saveProperty(existingProperty);
