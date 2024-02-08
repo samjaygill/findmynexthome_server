@@ -1,6 +1,8 @@
 package com.gillies.findmynexthome.data;
 
+import com.gillies.findmynexthome.model.Blog;
 import com.gillies.findmynexthome.model.Property;
+import com.gillies.findmynexthome.repository.BlogRepository;
 import com.gillies.findmynexthome.repository.PropertyRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +18,22 @@ public class DataLoader {
     private final PropertyRepository propertyRepository;
     private List<Property> propertyList;
 
-    @Autowired
-    public DataLoader(PropertyRepository propertyRepository) {
+    private final BlogRepository blogRepository;
+    private List<Blog> blogList;
+
+
+    public DataLoader(PropertyRepository propertyRepository, BlogRepository blogRepository) {
         this.propertyRepository = propertyRepository;
+        this.blogRepository = blogRepository;
     }
 
     @PostConstruct
     public void loadData() {
         List<Property> initialProperties = createInitialData();
         propertyRepository.saveAll(initialProperties);
+
+        List<Blog> initialBlogs = createInitialBlogData();
+        blogRepository.saveAll(initialBlogs);
     }
 
     private List<Property> createInitialData() {
@@ -43,15 +52,18 @@ public class DataLoader {
         Property property11 = new Property(11, "12 Harving Avenue","Newton Mearns", "Semi-Detached", 3, 2, "An extended, semi-detached villa set within generous gardens, extremely well located for amenities within the surrounding district. ", 1400.00, "24/01/2024", "rent", Arrays.asList("https://i.ibb.co/wsCb16S/4-1.jpg", "https://i.ibb.co/Qv1XnWZ/4-2.jpg", "https://i.ibb.co/k80PKLh/4-3.jpg", "https://i.ibb.co/QvKRvRw/4-4.jpg", "https://i.ibb.co/L8NS4K9/4-5.jpg", "https://i.ibb.co/Vt8gHsb/4-6.jpg", "https://i.ibb.co/BL6BKq2/4-7.jpg"));
         Property property12 = new Property(12, "3 Farkland Avenue","Newton Mearns", "Bungalow", 5, 3, "A locally admired and well presented traditional detached family home, positioned within generous with landscaped private corner garden grounds.", 695000.00, "20/01/2024", "sale", Arrays.asList("https://i.ibb.co/qWD0HmG/1-1.jpg", "https://i.ibb.co/LzqRqb4/1-2.jpg", "https://i.ibb.co/m9hFSY7/1-3.jpg", "https://i.ibb.co/F3mVhfs/1-4.jpg", "https://i.ibb.co/CMcg2QV/1-5.jpg", "https://i.ibb.co/b6p62L9/1-6.jpg", "https://i.ibb.co/CBGvPjT/1-7.jpg"));
 
-
-
-
-
-
-
         propertyList.addAll(Arrays.asList(property1, property2, property3, property4, property5, property6, property7, property8, property9, property10, property11, property12));
-
         return propertyList;
+    }
+
+    private List<Blog> createInitialBlogData() {
+        blogList = new ArrayList<>();
+
+        Blog blog1 = new Blog(1,"First Blog Title", "Content of the first blog");
+        Blog blog2 = new Blog(2,"Second Blog Title", "Content of the second blog");
+
+        blogList.addAll(Arrays.asList(blog1, blog2));
+        return blogList;
     }
 }
 
