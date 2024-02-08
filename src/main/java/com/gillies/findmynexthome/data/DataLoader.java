@@ -59,10 +59,14 @@ public class DataLoader {
     private List<Blog> createInitialBlogData() {
         blogList = new ArrayList<>();
 
-        Blog blog1 = new Blog(1,"First Blog Title", "Content of the first blog");
-        Blog blog2 = new Blog(2,"Second Blog Title", "Content of the second blog");
+        Blog blog1 = new Blog(1,"First Title", "First content");
+        Blog blog2 = new Blog(2,"Second Title", "Second content");
+        Blog blog3 = new Blog(3,"Third Title", "Third content");
+        Blog blog4 = new Blog(4,"Fourth Title", "Fourth content");
+        Blog blog5 = new Blog(5,"Fifth Title", "Fifth content");
+        Blog blog6 = new Blog(6,"Sixth Title", "Sixth content");
 
-        blogList.addAll(Arrays.asList(blog1, blog2));
+        blogList.addAll(Arrays.asList(blog1, blog2, blog3, blog4, blog5, blog6));
         return blogList;
     }
 }
